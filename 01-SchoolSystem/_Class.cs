@@ -11,7 +11,6 @@ namespace _01_SchoolSystem
         List<Pupil> pupils = new List<Pupil>();
         public string NameClass { get; set; }
         public int Count { get; set; }
-
         public _Class(string n)
         {
             NameClass = n;
@@ -42,5 +41,20 @@ namespace _01_SchoolSystem
             }
             return Convert.ToString(sb);
         }
+    }
+
+    abstract class Lessons
+    {
+        static public string[] less = { "Украинский язык", "Русский язык", "Английский язык", "Алгебра", "Геометрия", "Биология", "Физика", "Физкультура", "География", "Химия", "Украинская литература", "Зарубежная литература" };
+        static public void AddLesson(string l)
+        {
+            if(l.Length > 2 && l.Length < 30)
+            {
+                Array.Resize(ref less, less.Length + 1);
+                Char.ToUpper(l.First());
+                less[less.Length] = l;
+            }
+        }
+
     }
 }
