@@ -22,7 +22,7 @@ namespace _01_SchoolSystem
         }
         public Person(string n, string s, string p, DateTime d, string id) : this(n, s, p, d)
         {
-            if ((DateTime.Now.Date - d.Date).Days/365 >= 14)
+              if ((DateTime.Now.Date - d.Date).Days/365 >= 14)
                 ID = id;
         }
 
@@ -38,6 +38,8 @@ namespace _01_SchoolSystem
         public int IDp { get; set; }
         string[] lessons;
         int[][] marks;
+        Dictionary<String, List<int>> marks2 = new Dictionary<string, List<int>>();
+
         const int nlessons = 3;
 
         //public void SetMark(int mark, int index)
@@ -129,6 +131,12 @@ namespace _01_SchoolSystem
             IDps++;
             IDp = IDps;
             lessons = new string[] { "Украинский язык", "Русский язык", "Английский язык", "Алгебра", "Геометрия", "Биология", "Физика", "Физкультура", "География", "Химия", "Украинская литература", "Зарубежная литература" };
+            foreach (var item in lessons)
+            {
+                marks2[item] = new List<int>();
+            }
+            marks2["Физика"].Add(4);
+
             marks = new int[nlessons][];
             
         }

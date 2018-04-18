@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace _01_SchoolSystem
 {
+    [Serializable]
     class School
     {
         public string NameSchool { get; set; }
@@ -16,7 +17,7 @@ namespace _01_SchoolSystem
             NameSchool = name;
             SchoolNumber = number;
         }
-        public void Add(_Class c)
+        public void AddClass(_Class c)
         {
             classes.Add(c);
         }

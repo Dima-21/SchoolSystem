@@ -6,25 +6,27 @@ using System.Threading.Tasks;
 
 namespace _01_SchoolSystem
 {
+    [Serializable]
     class _Class
     {
         List<Pupil> pupils = new List<Pupil>();
         public string NameClass { get; set; }
-        public int Count { get; set; }
+        public int Count { get
+            {
+                return pupils.Count;
+            }
+        }
         public _Class(string n)
         {
             NameClass = n;
-            Count = 0;
         }
         public void Add(Pupil p)
         {
             pupils.Add(p);
-            Count++;
         }
         public void Remove(int id)
         {
             pupils.RemoveAt(id-1);
-            Count--;
         }
         public override string ToString()
         {
