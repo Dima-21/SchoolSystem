@@ -20,13 +20,19 @@ namespace _01_SchoolSystem
         {
             NameClass = n;
         }
-        public void Add(Pupil p)
+        public void AddPupil(Pupil p)
         {
             pupils.Add(p);
         }
-        public void Remove(int id)
+        public int RemovePupil(int id)
         {
-            pupils.RemoveAt(id-1);
+            foreach (var item in pupils)
+                if (item.IDp == id)
+                {
+                    pupils.RemoveAt(id - 1);
+                    return 1;
+                }
+            return 0;
         }
         public override string ToString()
         {
@@ -35,7 +41,7 @@ namespace _01_SchoolSystem
 
         private string FormatToString()
         {
-            StringBuilder sb = new StringBuilder(NameClass + Environment.NewLine,512);
+            StringBuilder sb = new StringBuilder($"{NameClass} {Environment.NewLine}",512);
             foreach (var item in pupils)
             {
                 sb.Append(item.ToString());
